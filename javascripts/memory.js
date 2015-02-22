@@ -16,7 +16,7 @@ function drawMemory()
     document.writeln('  <div class="form-group">');
     document.writeln('    <label for="mem'+pad(cell, 2)+'" class="col-sm-1 control-label">'+pad(cell, 2)+'</label>');
     document.writeln('    <div class="col-sm-1">');
-    document.writeln('      <input type="number" min="-999" max="999" class="form-control" id="mem'+pad(cell, 02)+'" placeholder="000" placeholder="000">');
+    document.writeln('      <input type="number" min="-999" max="999" class="form-control" id="mem'+pad(cell, 2)+'" placeholder="000" placeholder="000">');
     document.writeln('    </div>');
     document.writeln('  </div>');
   }
