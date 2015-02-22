@@ -20,7 +20,7 @@ function changeDelay(newValue) {
 function doReset()
 {
   doStop();
-  highlightAddr(00)
+  highlightAddr(0);
   pc = 0;
   acEl.value = "0000";
   pcEl.value = "00";
