@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CARDIAC -Cardboard Illustrative Aid to Computation</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script src="memory.js"></script>
+</head>
+<body onload="init()">
+
+<div class="container-fluid">
+<div class="jumbotron" style="background:#e5fbfc">
+ <div class="row">
+  <!-- OpCodes -->
+  <div class="col-xs-4">
+   <pre>
+    <h3 class="text-center">Instruction Set</h3>
+    <table class="table table-condensed">
+     <tr id="INP"><td><b>0xy</b></td><td>Input to [xy]</td></tr>
+     <tr id="CLA"><td><b>1xy</b></td><td>Load AC from [xy]</td></tr>
+     <tr id="ADD"><td><b>2xy</b></td><td>Add[xy] to AC</td></tr>
+     <tr id="TAC"><td><b>3xy</b></td><td>Test AC, jump to xy if < 0</td></tr>
+     <tr id="SFT"><td><b>4xy</b></td><td>Shift AC left 1, then right r</td></tr>
+     <tr id="OUT"><td><b>5xy</b></td><td>Output from [xy]</td></tr>
+     <tr id="STO"><td><b>6xy</b></td><td>Store AC to [xy]</td></tr>
+     <tr id="SUB"><td><b>7xy</b></td><td>Subtract [xy] from AC</td></tr>
+     <tr id="JMP"><td><b>8xy</b></td><td>Jump to [xy]</td></tr>
+     <tr id="HRS"><td><b>9xy</b></td><td>Halt and Reset</td></tr>
+    </table>
+   </pre>
+  </div>
+
+  <!-- Special Registers -->
+  <div class="col-xs-8">
+<div class="row">
+   <div class="form-horizontal col-xs-6 col-md-4">
+    <div class="form-group">
+     <label for="AC" class="col-sm-2 control-label"><abbr title="Accumulator - a register used to contain the results of an arithmetical or logical operation">AC</abbr></label>
+     <div class="col-sm-7">
+      <input type="number" min="-9999" max="9999" class="form-control" id="AC" placeholder="0000" readonly>
+     </div>
+    </div>
+    <div class="form-group">
+     <label for="PC" class="col-sm-2 control-label"><abbr title="Program Counter - the address of the next instruction to execute">PC</abbr></label>
+     <div class="col-sm-7">
+      <input type="number" min="0" max="99" class="form-control" id="PC" placeholder="00" readonly>
+     </div>
+    </div>
+    <div class="form-group">
+     <label for="INST" class="col-sm-2 control-label"><abbr title="Instruction Register - holds the instruction being executed">INST</abbr></label>
+     <div class="col-sm-7">
+      <input type="number" min="0" max="9" class="form-control" id="INST" placeholder="0" readonly>
+     </div>
+    </div>
+   </div>
+
+  <!-- IO -->
+   <div class="form-group col-xs-3 col-md-2">
+    <label for="input">Input</label>
+    <textarea class="form-control" rows="10" id="input"></textarea>
+   </div>
+   <div class="form-group col-xs-3 col-md-2">
+    <label for="output">Output</label>
+    <textarea class="form-control" rows="10" id="output" disabled="disabled"></textarea>
+   </div>
+</div> <!-- inner row -->
+   <div class="row">
+    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="right"
+      title="Run simulator at speed set on slider" id="run">Run</button>
+    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="right"
+      title="Single step processor" id="step">Step</button>
+    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="right"
+      title="Stop simulation" id="stop">Stop</button>
+    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="right"
+      title="Reset processor &amp; clear memory" id="reset">Reset</button>
+<div id="slider">
+ Speed (%):
+ <input class="bar" type="range" style="margin:10px" min="10" step="5" id="rangeinput" value="50" onchange="changeDelay(this.value)"/>
+ <output id="delayValue">50</output>
+</div>
+
+   </div>
+  </div>
+ </div> <!-- row? -->
+
+ <div class="form-inline" id="memory">
+  <script>drawMemory();</script>
+ </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="simulator.js"></script>
+
+</body>
+</html>
