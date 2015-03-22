@@ -5,6 +5,28 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script src="javascripts/memory.js"></script>
+<style>
+.row {
+  padding-top:  10px;
+}
+.io-control {
+  display: block;
+  resize:  none;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+</style>
 </head>
 <body onload="init()">
 
@@ -58,11 +80,46 @@
   <!-- IO -->
    <div class="form-group col-xs-3 col-md-2">
     <label for="input">Input</label>
-    <textarea class="form-control" cols="3" rows="10" id="input"></textarea>
+    <!-- <textarea cols="3" rows="10" id="input"> -->
+    <!-- <textarea class="form-control" id="input"> -->
+    <textarea class="io-control" cols="3" rows="10" id="input">
+002
+800
+010
+100
+011
+605
+012
+104
+013
+322
+014
+505
+015
+105
+016
+200
+017
+605
+018
+104
+019
+700
+020
+604
+021
+812
+022
+900
+004
+009
+002
+810
+    </textarea>
    </div>
    <div class="form-group col-xs-3 col-md-2">
     <label for="output">Output</label>
-    <textarea class="form-control" cols="3" rows="10" id="output" disabled="disabled"></textarea>
+    <textarea class="io-control" cols="3" rows="10" id="output" disabled="disabled"></textarea>
    </div>
 </div> <!-- inner row -->
    <div class="row">
@@ -82,9 +139,10 @@
 
    </div>
   </div>
- </div> <!-- row? -->
+ </div>
 
  <div class="form-inline" id="memory">
+
   <script>drawMemory();</script>
  </div>
 </div>

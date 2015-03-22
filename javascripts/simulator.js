@@ -48,7 +48,8 @@ function doDelayRun()
 }
 
 function loadInput() {
-  inputs = document.getElementById("input").value.split("\n");
+  //inputs = document.getElementById("input").value.trim().split(/(\s+)/g);
+  inputs = document.getElementById("input").value.match(/\S+/g);
   inIndex = 0;
 }
 
@@ -99,20 +100,28 @@ function doStep() {
   
   // Increment PC and update UI
   pcEl.value = pad(++pc, 2);
-  currentCell.parentElement.parentElement.classList.remove("has-success");
+  //currentCell.parentElement.parentElement.classList.remove("has-success");
+  //document.getElementById("lBug").remove();
+  document.getElementById("lBug"+pad(pc-1, 2)).style.display = 'none';
 
   switch(op) {
   case 0:  // INP - Input (take value from input and put in memory
     if(inIndex >= inputs.length || inputs[inIndex] == '') {
-      mode = 0;
+      mode = 0; // Mode 1 is auto-run
       pc = 0;
     }
     else {
-      store(addr, Number(inputs[inIndex]));
-      inIndex++;
-      input.value = '';
-      for(i = inIndex; i < inputs.length; ++i)
-        input.value += inputs[i]+'\n';
+      if (addr == 0) {
+        mode = 0;
+        pc = 0;
+      } else {
+        store(addr, Number(inputs[inIndex]));
+        inIndex++;
+        input.value = '';
+        for(i = inIndex; i < inputs.length; ++i) {
+          input.value += inputs[i]+'\n';
+        }
+      }
     }
     // Highlight last instruction run
     highlightOP("INP");
@@ -187,7 +196,9 @@ function doStep() {
   }
   // Update PC in UI
   pcEl.value = pad(pc, 2);
-  document.getElementById("mem"+pad(pc, 2)).parentElement.parentElement.classList.add("has-success");
+  //document.getElementById("mem"+pad(pc, 2)).parentElement.parentElement.classList.add("has-success");
+  //document.getElementById("mem"+pad(pc, 2)).parentElement.innerHTML += '<div id="lBug" style="position:absolute;right:-240%">\n<image src="images/Anonymous-Ladybug.png" height="32" width="32">\n</div>';
+  document.getElementById("lBug"+pad(pc, 2)).style.display = 'inline';
 }
 
 function init() {
