@@ -19,13 +19,7 @@ function changeDelay(newValue) {
 
 function doReset()
 {
-  doStop();
-  highlightAddr(0);
-  pc = 0;
-  acEl.value = "0000";
-  pcEl.value = "00";
-  instEl.value   = "";
-  outputEl.value = "";
+  location.reload();
 }
 
 function doStop()
