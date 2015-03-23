@@ -27,8 +27,6 @@ function drawMemory()
     +  '</div>'
     +  '</div>\n';
   }
-  //document.getElementById("mem00").parentElement.parentElement.classList.add("has-success");
-  //document.getElementById("mem00").parentElement.innerHTML += '<div id="lBug" style="position:absolute;right:-240%">\n<image src="images/Anonymous-Ladybug.png" height="32" width="32">\n</div>';
   document.getElementById("lBug00").style.display = 'inline';
   document.getElementById("mem00").value = "001";
   document.getElementById("mem00").readOnly = "readOnly";
