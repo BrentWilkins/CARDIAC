@@ -16,9 +16,9 @@ function drawMemory()
   for(cell = 0; cell < 100; cell++) {
     el.innerHTML +=
   '  <div class="form-group">\n'
-    +  '<label for="mem'+pad(cell, 2)+'" class="col-xs-1 control-label">'
+    +  '<label for="mem'+pad(cell, 2)+'" class="col-xs-2 control-label">'
     +  pad(cell, 2)+'</label>'
-    +  '<div class="col-xs-1">'
+    +  '<div class="col-xs-2">'
     +   '<input type="number" min="-999" max="999" class="mem-control" id="mem'
     +      pad(cell, 2)+'" placeholder="000">'
     +  '<div id="lBug'+pad(cell, 2)+'" style="position:absolute;right:-240%;'
