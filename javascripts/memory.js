@@ -15,7 +15,7 @@ function drawMemory()
     
   for(cell = 0; cell < 100; cell++) {
     el.innerHTML +=
-  '  <div class="form-group">\n'
+  '  <div class="form-group" style="display:inline-block">\n'
     +  '<label for="mem'+pad(cell, 2)+'" class="col-xs-2 control-label">'
     +  pad(cell, 2)+'</label>'
     +  '<div class="col-xs-2">'
